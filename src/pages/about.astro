@@ -16,15 +16,15 @@ const skills = ['HTML', 'CSS', 'JavaScript', 'Angular', 'Astro'];
 const happy = true;
 const finished = true;
 const goal = 3;
-
-const skillColor = 'red';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<p>Here are a few facts about me:</p>
 	<ul>
 		<li>My name is {identity.name}.</li>
-		<li>I live in {identity.location} and I work as a {identity.occupation}.</li>
+		<li>
+			I live in {identity.location} and I work as a {identity.occupation}.
+		</li>
 		{
 			identity.hobbies.length >= 2 && (
 				<li>
