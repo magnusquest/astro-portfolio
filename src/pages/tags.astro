@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const uniqueTags = [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
+---
+
+<BaseLayout pageTitle="Tags">
+	<p>Explore our posts by tags:</p>
+	<ul>
+		{
+			uniqueTags.map((tag: string) => (
+				<li>
+					<a href={`/tags/${tag}`}>{tag}</a>
+				</li>
+			))
+		}
+	</ul>
+</BaseLayout>

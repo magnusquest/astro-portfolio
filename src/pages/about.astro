@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = 'About Me';
+
+const identity = {
+	name: 'Martin Cordero',
+	age: 28,
+	location: 'Tampa, FL',
+	occupation: 'Software Developer',
+	hobbies: ['Gaming', 'Coding', 'Hiking'],
+};
+
+const skills = ['HTML', 'CSS', 'JavaScript', 'Angular', 'Astro'];
+
+const happy = true;
+const finished = true;
+const goal = 3;
+
+const skillColor = 'red';
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<p>Here are a few facts about me:</p>
+	<ul>
+		<li>My name is {identity.name}.</li>
+		<li>I live in {identity.location} and I work as a {identity.occupation}.</li>
+		{
+			identity.hobbies.length >= 2 && (
+				<li>
+					Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+				</li>
+			)
+		}
+	</ul>
+	<p>My skills are:</p>
+	<ul>
+		{skills.map((skill) => <li class="skill">{skill}</li>)}
+	</ul>
+	<p>I am an alumni at the University of Miami</p>
+
+	{happy && <p>I am happy to be learning Astro!</p>}
+
+	{finished && <p>I finished this tutorial!</p>}
+
+	{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+</BaseLayout>

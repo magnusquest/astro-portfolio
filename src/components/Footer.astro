@@ -1,0 +1,24 @@
+---
+const platform = 'github';
+const username = 'withastro';
+import Social from './Social.astro';
+---
+
+<style>
+	footer {
+		display: flex;
+		gap: 1rem;
+		margin-top: 2rem;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		padding: 1rem;
+		background-color: inherit;
+	}
+</style>
+
+<footer>
+	<Social platform="x" username="questmagnus" />
+	<Social platform="github" username="magnusquest" />
+	<Social platform="linkedin" username="martin-cordero" />
+</footer>
