@@ -1,7 +1,22 @@
+:root {
+	--bg-light: #f3f4f6; /* gray-100 */
+	--bg-dark: #111827; /* gray-900 */
+	--text-darkest: #1f2937; /* gray-800 */
+	--text-darker: #374151; /* gray-700 */
+	--text-dark: #4b5563; /* gray-600 */
+	--text-light: #e5e7eb; /* gray-200 */
+	--text-lighter: #d1d5db; /* gray-300 */
+	--bg-nav-light: #6b7280; /* gray-500 */
+	--bg-nav-hover-light: #9ca3af; /* gray-400 */
+	--bg-nav-dark: #1f2937; /* gray-800 */
+	--bg-nav-hover-dark: #374151; /* gray-700 */
+	--black: #000000;
+}
+
 @import 'tailwindcss';
 
 html {
-	@apply bg-slate-100;
+	@apply bg-[var(--bg-light)];
 	@apply font-sans;
 }
 
@@ -14,15 +29,15 @@ body {
 }
 
 h1 {
-	@apply my-4 text-4xl;
+	@apply my-4 text-4xl text-[var(--text-darkest)];
 }
 
 h2 {
-	@apply my-4 text-3xl;
+	@apply my-4 text-3xl text-[var(--text-darker)];
 }
 
 h3 {
-	@apply my-4 text-2xl;
+	@apply my-4 text-2xl text-[var(--text-dark)];
 }
 
 /* nav styles */
@@ -32,20 +47,24 @@ h3 {
 }
 
 .hamburger .line {
-	@apply block w-10 h-[5px] mb-[10px] bg-[#ff9776];
+	@apply block w-10 h-[5px] mb-[10px] bg-[var(--text-dark)];
 }
 
 .nav-links {
-	@apply w-full top-20 left-12 bg-[#ff9776] hidden m-0;
+	@apply w-full top-20 left-12 bg-[var(--bg-nav-light)] hidden m-0;
 }
 
 .nav-links a {
-	@apply block text-center py-[10px] no-underline text-lg font-bold uppercase;
+	@apply block text-center py-[10px] no-underline text-lg font-bold uppercase text-[var(--text-light)];
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
-	@apply bg-[#ff9776];
+	@apply bg-[var(--bg-nav-hover-light)];
+}
+
+.nav-links a:visited {
+	@apply text-[var(--text-darker)];
 }
 
 .expanded {
@@ -66,27 +85,80 @@ h3 {
 	}
 }
 
-html.dark {
-	@apply bg-[#0d0950] text-white;
-}
-
-.dark .nav-links a {
-	@apply text-white;
-}
-
-.dark .nav-links a:hover,
-.dark .nav-links a:focus {
-	@apply bg-[#140aca];
-}
-
 p {
-	@apply mb-4;
+	@apply mb-4 text-[var(--text-dark)];
 }
 
 ul {
-	@apply list-disc list-inside;
+	@apply list-disc list-inside text-[var(--text-dark)];
 }
 
 li {
 	@apply mb-2;
+}
+
+html.dark {
+	@apply bg-[var(--black)] text-[var(--text-light)];
+}
+
+.dark {
+	h1 {
+		@apply text-[var(--text-light)];
+	}
+
+	h2 {
+		@apply text-[var(--text-light)];
+	}
+
+	h3 {
+		@apply text-[var(--text-lighter)];
+	}
+
+	p {
+		@apply text-[var(--text-lighter)];
+	}
+
+	ul {
+		@apply text-[var(--text-lighter)];
+	}
+
+	.hamburger .line {
+		@apply bg-[var(--text-lighter)];
+	}
+
+	.nav-links {
+		@apply bg-[var(--bg-nav-dark)];
+	}
+
+	.nav-links a {
+		@apply text-[var(--text-lighter)];
+	}
+
+	.nav-links a:hover,
+	.nav-links a:focus {
+		@apply bg-[var(--bg-nav-hover-dark)];
+	}
+
+	.nav-links a:visited {
+		@apply text-[var(--text-light)];
+	}
+
+	a:visited {
+		@apply text-[var(--text-light)];
+	}
+
+	a {
+		@apply text-[var(--text-light)] cursor-pointer hover:underline transition-colors duration-200 ease-in-out;
+	}
+
+	a:hover,
+	a:focus {
+		@apply text-[var(--text-lighter)];
+	}
+
+	@media screen and (min-width: 636px) {
+		.nav-links {
+			@apply bg-transparent;
+		}
+	}
 }

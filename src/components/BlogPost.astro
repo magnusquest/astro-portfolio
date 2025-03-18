@@ -10,20 +10,3 @@ const { url, title } = Astro.props;
 <li class="blog-post">
 	<a href={url}>{title}</a>
 </li>
-
-<style>
-	.blog-post {
-		margin-bottom: 1rem;
-	}
-
-	.blog-post a {
-		color: #333;
-		text-decoration: none;
-		font-size: 1.2rem;
-	}
-
-	.blog-post a:hover {
-		color: #666;
-		text-decoration: underline;
-	}
-</style>
