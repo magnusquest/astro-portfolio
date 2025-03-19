@@ -51,7 +51,7 @@ h3 {
 }
 
 .nav-links {
-	@apply w-full top-20 left-12 bg-[var(--bg-nav-light)] hidden m-0;
+	@apply mx-auto fixed bg-[var(--bg-nav-light)] hidden;
 }
 
 .nav-links a {

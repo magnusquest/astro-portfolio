@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 
 const LetterGlitch = ({
-	glitchColors = ['#0a0a0a', '#111111', '#0f0f0f'],
+	glitchColors = ['#1a1a1a', '#222222', '#1f1f1f'],
 	glitchSpeed = 50,
 	centerVignette = true,
 	outerVignette = true,
@@ -256,7 +256,7 @@ const LetterGlitch = ({
 	}, [glitchSpeed, smooth]);
 
 	const containerStyle = {
-		position: 'absolute',
+		position: 'fixed',
 		top: 0,
 		left: 0,
 		width: '100%',
