@@ -1,25 +1,65 @@
 ---
-const platform = 'github';
-const username = 'withastro';
-import Social from './Social.astro';
+const platform = "github";
+const username = "withastro";
+import Social from "./Social.astro";
 ---
 
 <style>
 	footer {
 		display: flex;
-		gap: 1rem;
+		gap: 2rem;
 		margin-top: 2rem;
 		position: fixed;
 		bottom: 0;
-		width: auto;
-		padding: 1rem;
-		background-color: inherit;
-		justify-content: space-evenly;
+		left: 0;
+		width: 100vw;
+		padding: 1rem 0;
+		background: transparent;
+		backdrop-filter: blur(16px) saturate(180%);
+		-webkit-backdrop-filter: blur(16px) saturate(180%);
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		justify-content: center;
+		z-index: 50;
+	}
+	.social-btn {
+		padding: 0.75rem 2rem;
+		border-radius: 0.5rem;
+		background: rgba(0, 0, 0, 0.2);
+		color: #d8d8d8;
+		font-weight: 500;
+		font-size: 1rem;
+		border: none;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+		transition:
+			background 0.2s,
+			color 0.2s;
+		cursor: pointer;
+	}
+	.social-btn:hover {
+		background: #c7d2fe;
+		color: #3730a3;
+	}
+	.dark .social-btn {
+		background: rgba(31, 41, 55, 0.2);
+		color: #e5e7eb;
+	}
+	.dark .social-btn:hover {
+		background: #3730a3;
+		color: #c7d2fe;
 	}
 </style>
 
 <footer>
-	<Social platform="x" username="matrix_quest" />
-	<Social platform="github" username="magnusquest" />
-	<Social platform="linkedin" username="in/martin-alejandro-cordero/" />
+	<a href="https://x.com/matrix_quest" target="_blank" rel="noopener">
+		<button class="social-btn">X</button>
+	</a>
+	<a href="https://github.com/magnusquest" target="_blank" rel="noopener">
+		<button class="social-btn">GitHub</button>
+	</a>
+	<a
+		href="https://linkedin.com/in/martin-alejandro-cordero/"
+		target="_blank"
+		rel="noopener">
+		<button class="social-btn">LinkedIn</button>
+	</a>
 </footer>
