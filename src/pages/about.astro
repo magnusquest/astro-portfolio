@@ -1,17 +1,18 @@
 ---
-import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = 'About Me';
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AboutSection from "../components/AboutSection.jsx";
+const pageTitle = "About Me";
 
 const identity = {
-	name: 'Martin Cordero',
+	name: "Martin Cordero",
 	age: 28,
-	location: 'Tampa, FL',
-	occupation: 'Software Developer',
-	hobbies: ['Gaming', 'Coding', 'Hiking'],
+	location: "Tampa, FL",
+	occupation: "Software Developer",
+	hobbies: ["Gaming", "Coding", "Hiking"]
 };
 
-const skills = ['HTML', 'CSS', 'JavaScript', 'Angular', 'Astro'];
+const skills = ["HTML", "CSS", "JavaScript", "Angular", "Astro"];
 
 const happy = true;
 const finished = true;
@@ -19,6 +20,7 @@ const goal = 3;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+	<AboutSection />
 	<p>Here are a few facts about me:</p>
 	<ul>
 		<li>My name is {identity.name}.</li>
@@ -43,5 +45,11 @@ const goal = 3;
 
 	{finished && <p>I finished this tutorial!</p>}
 
-	{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+	{
+		goal === 3 ? (
+			<p>My goal is to finish in 3 days.</p>
+		) : (
+			<p>My goal is not 3 days.</p>
+		)
+	}
 </BaseLayout>

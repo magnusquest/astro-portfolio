@@ -1,7 +1,9 @@
 ---
-import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import LetterGlitch from '../components/LetterGlitch';
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LetterGlitch from "../components/LetterGlitch";
+import Skills from "../components/Skills.svelte";
+import Projects from "../components/Projects.svelte";
 ---
 
 <BaseLayout>
@@ -14,4 +16,6 @@ import LetterGlitch from '../components/LetterGlitch';
 		/>
 		<h2>Software Engineer</h2>
 	</div>
+	<Skills client:load />
+	<Projects client:load />
 </BaseLayout>
