@@ -1,47 +1,70 @@
-# Astro Starter Kit: Minimal
+# Martin Cordero — Portfolio
+
+Personal portfolio and blog for Martin Alejandro Cordero, Software Engineer. Built with Astro 5, deployed to Vercel.
+
+## Stack
+
+| Layer | Tech |
+|-------|------|
+| Framework | Astro 5 (SSR via Vercel adapter) |
+| UI | React 19, Svelte 5, Vue 3, Preact |
+| Styling | Tailwind CSS v4 |
+| Content | Astro Content Collections (Markdown) |
+| Language | TypeScript |
+| Deploy | Vercel |
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Hero (name, avatar), Skills, Projects |
+| `/about` | Bio, identity facts, skill list |
+| `/blog` | Blog post index |
+| `/posts/[slug]` | Individual blog post |
+| `/contact` | Contact form |
+| `/tags` | All content tags |
+| `/tags/[tag]` | Posts filtered by tag |
+
+## Project Structure
+
+```
+src/
+├── blog/              # Markdown blog posts
+├── components/
+│   ├── LetterGlitch.jsx     # Animated glitch canvas background (React)
+│   ├── Skills.svelte         # Skills list (Svelte)
+│   ├── Projects.svelte       # Projects list (Svelte)
+│   ├── ContactForm.vue       # Contact form (Vue)
+│   ├── AboutSection.jsx      # About bio (React)
+│   ├── Header.astro          # Sticky glassmorphism navbar
+│   ├── Footer.astro          # Fixed glassmorphism footer + social links
+│   └── BlogPost.astro        # Blog list item
+├── layouts/
+│   ├── BaseLayout.astro      # Root layout (dark mode, header, footer, glitch bg)
+│   └── MarkdownPostLayout.astro
+├── pages/             # File-based routing
+├── styles/global.css  # Tailwind + CSS vars (dark theme)
+└── content.config.ts  # Blog collection schema
+```
+
+## Commands
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install       # Install dependencies
+npm run dev       # Dev server at localhost:4321
+npm run build     # Build to ./dist/
+npm run preview   # Preview production build locally
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Design Notes
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Dark mode is always active (`<html class="dark">` hardcoded in BaseLayout)
+- `LetterGlitch` renders a full-screen animated character matrix at `z-index: -9999` as the background
+- Header and footer use glassmorphism (`backdrop-filter: blur`)
+- Contact form submission is a placeholder — wire up Formspree/Netlify Forms to activate
 
-## 🚀 Project Structure
+## Social
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- X: [@matrix_quest](https://x.com/matrix_quest)
+- GitHub: [@magnusquest](https://github.com/magnusquest)
+- LinkedIn: [martin-alejandro-cordero](https://linkedin.com/in/martin-alejandro-cordero/)
