@@ -4,7 +4,11 @@ import '../styles/global.css';
 import BaseLayout from './BaseLayout.astro';
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout
+  title={`${frontmatter.title} — Martin Cordero`}
+  description={frontmatter.description}
+  image={frontmatter.image?.url}
+>
   <article class="section-wrap prose">
     <a href="/blog" class="back-link">← Blog</a>
     <h1>{frontmatter.title}</h1>
