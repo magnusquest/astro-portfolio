@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import LetterGlitch from "../components/LetterGlitch";
 import HeroSection from "../components/HeroSection.astro";
 import AboutSection from "../components/AboutSection.astro";
 import SkillsSection from "../components/SkillsSection.astro";
@@ -9,14 +8,6 @@ import ContactSection from "../components/ContactSection.astro";
 ---
 
 <BaseLayout pageTitle="Martin Cordero — Founding Engineer">
-  <LetterGlitch
-    client:load
-    glitchColors={["#DDDDDD", "#CCCCCC", "#E5E5E5"]}
-    glitchSpeed={60}
-    smooth={true}
-    outerVignette={false}
-    centerVignette={false}
-  />
   <HeroSection />
   <AboutSection />
   <SkillsSection />

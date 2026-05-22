@@ -1,6 +1,7 @@
 ---
 ---
 
+<div class="menu-backdrop" aria-hidden="true"></div>
 <header class="site-header">
   <nav class="nav-inner">
     <a href="/" class="nav-logo">MQ_</a>
@@ -48,9 +49,26 @@
     root.classList.toggle('dark');
     localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
   });
+
 </script>
 
 <style>
+  .menu-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    background: rgba(0, 0, 0, 0.18);
+    transition: opacity 0.2s;
+  }
+
+  :global(.menu-open) .menu-backdrop,
+  .menu-backdrop.visible {
+    display: block;
+  }
+
   .site-header {
     position: sticky;
     top: 0;
@@ -208,11 +226,13 @@
       top: 58px;
       left: 0;
       right: 0;
-      background: var(--color-bg);
-      border-bottom: 2px solid var(--color-border);
+      z-index: 45;
       flex-direction: column;
       align-items: stretch;
       gap: 0;
+      background: var(--color-bg);
+      border-bottom: 2px solid var(--color-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
 
     .nav-links.expanded {
@@ -222,8 +242,15 @@
     .nav-links a {
       height: auto;
       line-height: normal;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid var(--color-border-subtle);
+      padding: 1.1rem 2rem;
+      font-size: 0.9375rem;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+      color: var(--color-text);
+    }
+
+    .nav-links li:last-child a {
+      border-bottom: none;
     }
 
     .nav-blog {
@@ -231,6 +258,7 @@
       border: none !important;
       box-shadow: none !important;
       background: var(--color-accent) !important;
+      color: #0a0a0a !important;
     }
   }
 </style>
