@@ -8,15 +8,149 @@ const { slug } = Astro.params;
 const post = await getPost(slug ?? '');
 
 if (!post) return Astro.redirect('/blog');
+
+const date = post.publishDate
+  ? new Date(post.publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  : null;
 ---
 
-<BaseLayout pageTitle={post.title}>
-	<h1>{post.title}</h1>
-	{post.publishDate && (
-		<p>{new Date(post.publishDate).toLocaleDateString()}</p>
-	)}
-	{post.coverPhoto && (
-		<img src={post.coverPhoto.url} alt={post.title} width="800" />
-	)}
-	<div set:html={post.content.html} />
+<BaseLayout pageTitle={`${post.title} — Martin Cordero`}>
+  <article class="section-wrap post-article">
+    <a href="/blog" class="back-link">← Blog</a>
+
+    <span class="section-label">// post</span>
+    <h1>{post.title}</h1>
+
+    {date && (
+      <div class="post-meta">
+        <span>{date}</span>
+      </div>
+    )}
+
+    {post.coverPhoto?.url && (
+      <div class="post-hero-img">
+        <img src={post.coverPhoto.url} alt={post.title} />
+      </div>
+    )}
+
+    <div class="post-body prose" set:html={post.content.html} />
+  </article>
 </BaseLayout>
+
+<style>
+  .post-article {
+    max-width: 720px;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.1s, border-color 0.1s;
+  }
+
+  .back-link:hover {
+    color: var(--color-text);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .post-article h1 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .post-hero-img {
+    border: 2px solid var(--color-border);
+    box-shadow: var(--shadow-brutal);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+
+  .post-hero-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .post-body :global(h2),
+  .post-body :global(h3) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .post-body :global(p) {
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-body :global(a) {
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+
+  .post-body :global(li) {
+    list-style: revert;
+    margin-bottom: 0.25rem;
+  }
+
+  .post-body :global(code) {
+    font-family: var(--font-mono);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    padding: 0 4px;
+    font-size: 0.875em;
+  }
+
+  .post-body :global(pre) {
+    background: var(--color-text);
+    color: var(--color-accent);
+    padding: 1.5rem;
+    border: 2px solid var(--color-border);
+    box-shadow: var(--shadow-brutal);
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .post-body :global(pre code) {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .post-body :global(blockquote) {
+    border-left: 4px solid var(--color-accent);
+    margin: 1.5rem 0;
+    padding: 0.5rem 1.5rem;
+    background: var(--color-surface);
+  }
+</style>

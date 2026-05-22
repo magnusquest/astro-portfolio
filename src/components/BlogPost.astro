@@ -12,13 +12,16 @@ const date = publishDate ? new Date(publishDate).toLocaleDateString('en-US', { y
 <li class="post-item">
   <a href={url} class="post-link">
     <span class="post-title">{title}</span>
-    {date && <span class="post-date">{date}</span>}
+    <span class="post-meta">
+      {date && <span class="post-date">{date}</span>}
+      <span class="post-arrow">→</span>
+    </span>
   </a>
 </li>
 
 <style>
   .post-item {
-    border-bottom: 1px solid var(--color-border-subtle);
+    border-bottom: 2px solid var(--color-border);
   }
 
   .post-item:last-child {
@@ -30,12 +33,18 @@ const date = publishDate ? new Date(publishDate).toLocaleDateString('en-US', { y
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 1.5rem;
-    transition: background 0.1s;
+    transition: background 0.1s, transform 0.1s;
     gap: 1rem;
   }
 
   .post-link:hover {
-    background: var(--color-accent-muted);
+    background: var(--color-accent);
+  }
+
+  .post-link:hover .post-title,
+  .post-link:hover .post-date,
+  .post-link:hover .post-arrow {
+    color: #0a0a0a;
   }
 
   .post-title {
@@ -45,13 +54,24 @@ const date = publishDate ? new Date(publishDate).toLocaleDateString('en-US', { y
     color: var(--color-text);
   }
 
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
   .post-date {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    white-space: nowrap;
-    flex-shrink: 0;
+  }
+
+  .post-arrow {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
   }
 </style>
