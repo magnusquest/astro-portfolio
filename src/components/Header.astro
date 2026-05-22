@@ -4,7 +4,7 @@
 <div class="menu-backdrop" aria-hidden="true"></div>
 <header class="site-header">
   <nav class="nav-inner">
-    <a href="/" class="nav-logo">MQ_</a>
+    <a href="/" class="nav-logo">MC_</a>
     <button class="hamburger" aria-label="Toggle menu">
       <span class="line"></span>
       <span class="line"></span>
@@ -218,6 +218,11 @@
   @media (max-width: 640px) {
     .hamburger {
       display: flex;
+      order: 3;
+    }
+
+    .theme-switch {
+      order: 2;
     }
 
     .nav-links {
@@ -259,6 +264,9 @@
       box-shadow: none !important;
       background: var(--color-accent) !important;
       color: #0a0a0a !important;
+      padding: 1.1rem 2rem !important;
+      height: auto !important;
+      line-height: normal !important;
     }
   }
 </style>
