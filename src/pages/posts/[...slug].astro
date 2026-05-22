@@ -14,7 +14,11 @@ const date = post.publishDate
   : null;
 ---
 
-<BaseLayout pageTitle={`${post.title} — Martin Cordero`}>
+<BaseLayout
+  title={`${post.title} — Martin Cordero`}
+  description={post.title}
+  image={post.coverPhoto?.url}
+>
   <article class="section-wrap post-article">
     <a href="/blog" class="back-link">← Blog</a>
 
