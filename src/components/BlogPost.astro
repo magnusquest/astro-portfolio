@@ -1,12 +1,57 @@
 ---
 interface Props {
-	url: string;
-	title: string;
+  url: string;
+  title: string;
+  publishDate?: string;
 }
 
-const { url, title } = Astro.props;
+const { url, title, publishDate } = Astro.props;
+const date = publishDate ? new Date(publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : null;
 ---
 
-<li class="blog-post">
-	<a href={url}>{title}</a>
+<li class="post-item">
+  <a href={url} class="post-link">
+    <span class="post-title">{title}</span>
+    {date && <span class="post-date">{date}</span>}
+  </a>
 </li>
+
+<style>
+  .post-item {
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .post-item:last-child {
+    border-bottom: none;
+  }
+
+  .post-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    transition: background 0.1s;
+    gap: 1rem;
+  }
+
+  .post-link:hover {
+    background: var(--color-accent-muted);
+  }
+
+  .post-title {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .post-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+</style>

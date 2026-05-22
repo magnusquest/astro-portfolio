@@ -1,168 +1,206 @@
 :root {
-	--bg-light: #f3f4f6; /* gray-100 */
-	--bg-dark: #111827; /* gray-900 */
-	--text-darkest: #1f2937; /* gray-800 */
-	--text-darker: #374151; /* gray-700 */
-	--text-dark: #4b5563; /* gray-600 */
-	--text-light: #e5e7eb; /* gray-200 */
-	--text-lighter: #d1d5db; /* gray-300 */
-	--bg-nav-light: #6b7280; /* gray-500 */
-	--bg-nav-hover-light: #9ca3af; /* gray-400 */
-	--bg-nav-dark: #1f2937; /* gray-800 */
-	--bg-nav-hover-dark: #374151; /* gray-700 */
-	--black: #000000;
+  --color-bg: #ffffff;
+  --color-surface: #f7f7f5;
+  --color-text: #0a0a0a;
+  --color-text-muted: #555555;
+  --color-accent: #c8ff3a;
+  --color-accent-muted: #e8ffaa;
+  --color-border: #0a0a0a;
+  --color-border-subtle: #d4d4d4;
+
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+
+  --shadow-brutal: 4px 4px 0 var(--color-border);
+  --shadow-brutal-lg: 6px 6px 0 var(--color-border);
+
+  --max-w: 960px;
+  --color-invert-bg: #0a0a0a;
+  --color-invert-text: #f0f0f0;
+}
+
+html.dark {
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-text: #f0f0f0;
+  --color-text-muted: #f0f0f0;
+  --color-border: #f0f0f0;
+  --color-border-subtle: #2a2a2a;
+  --color-invert-bg: #141414;
+  --color-invert-text: #f0f0f0;
 }
 
 @import "tailwindcss";
 
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
 html {
-	@apply bg-[var(--bg-light)];
-	@apply font-sans;
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
 }
 
 body {
-	@apply w-full p-0 m-0;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
-.main-content {
-	@apply mx-auto max-w-[80ch] p-4 leading-normal;
-}
-
-* {
-	@apply box-border;
-}
-
-h1 {
-	@apply my-4 text-4xl text-[var(--text-darkest)];
-}
-
-h2 {
-	@apply my-4 text-3xl text-[var(--text-darker)];
-}
-
-h3 {
-	@apply my-4 text-2xl text-[var(--text-dark)];
-}
-
-/* nav styles */
-
-.hamburger {
-	@apply pr-5 cursor-pointer;
-}
-
-.hamburger .line {
-	@apply block w-10 h-[5px] mb-[10px] bg-[var(--text-dark)];
-}
-
-.nav-links {
-	@apply mx-auto fixed bg-[var(--bg-nav-light)] hidden;
-}
-
-.nav-links a {
-	@apply block text-center py-[10px] no-underline text-lg font-bold uppercase text-[var(--text-light)];
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-	@apply bg-[var(--bg-nav-hover-light)];
-}
-
-.nav-links a:visited {
-	@apply text-[var(--text-darker)];
-}
-
-.expanded {
-	@apply block;
-}
-
-@media screen and (min-width: 636px) {
-	.nav-links {
-		@apply ml-20 block static w-auto bg-transparent;
-	}
-
-	.nav-links a {
-		@apply inline-block py-[15px] px-5;
-	}
-
-	.hamburger {
-		@apply hidden;
-	}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin: 0 0 1rem;
 }
 
 p {
-	@apply mb-4 text-[var(--text-dark)];
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0 0 1rem;
 }
 
-ul {
-	@apply list-disc list-inside text-[var(--text-dark)];
+a {
+  color: var(--color-text);
+  text-decoration: none;
 }
 
-li {
-	@apply mb-2;
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-html.dark {
-	@apply bg-[var(--black)] text-[var(--text-light)];
+/* ─── Utilities ─── */
+
+.section-wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 6rem 2rem;
 }
 
-.dark {
-	h1 {
-		@apply text-[var(--text-light)];
-	}
+.section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 4px;
+  margin-bottom: 2rem;
+}
 
-	h2 {
-		@apply text-[var(--text-light)];
-	}
+.divider {
+  border: none;
+  border-top: 2px solid var(--color-border);
+  margin: 0;
+}
 
-	h3 {
-		@apply text-[var(--text-lighter)];
-	}
+/* ─── Buttons ─── */
 
-	p {
-		@apply text-[var(--text-lighter)];
-	}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
+  cursor: pointer;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+}
 
-	ul {
-		@apply text-[var(--text-lighter)];
-	}
+.btn:hover {
+  background: var(--color-accent-muted);
+  box-shadow: 2px 2px 0 var(--color-border);
+  transform: translate(2px, 2px);
+}
 
-	.hamburger .line {
-		@apply bg-[var(--text-lighter)];
-	}
+.btn-ghost {
+  background: transparent;
+}
 
-	.nav-links {
-		@apply bg-[var(--bg-nav-dark)];
-	}
+.btn-ghost:hover {
+  background: var(--color-accent-muted);
+}
 
-	.nav-links a {
-		@apply text-[var(--text-lighter)];
-	}
+/* ─── Cards ─── */
 
-	.nav-links a:hover,
-	.nav-links a:focus {
-		@apply bg-[var(--bg-nav-hover-dark)];
-	}
+.card {
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
+  padding: 1.5rem;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+}
 
-	.nav-links a:visited {
-		@apply text-[var(--text-light)];
-	}
+.card:hover {
+  box-shadow: var(--shadow-brutal-lg);
+  transform: translate(-2px, -2px);
+}
 
-	a:visited {
-		@apply text-[var(--text-light)];
-	}
+/* ─── Tags ─── */
 
-	a {
-		@apply text-[var(--text-light)] cursor-pointer hover:underline transition-colors duration-200 ease-in-out;
-	}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  background: var(--color-accent);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--color-border);
+}
 
-	a:hover,
-	a:focus {
-		@apply text-[var(--text-lighter)];
-	}
+/* ─── Blog / markdown ─── */
 
-	@media screen and (min-width: 636px) {
-		.nav-links {
-			@apply bg-transparent;
-		}
-	}
+.prose h1, .prose h2, .prose h3 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.prose p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.prose a {
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  padding: 0 4px;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background: var(--color-text);
+  color: var(--color-accent);
+  padding: 1.5rem;
+  border: 2px solid var(--color-border);
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  font-size: 0.875rem;
 }

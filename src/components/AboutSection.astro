@@ -1,0 +1,115 @@
+---
+---
+
+<section id="about" class="about-section">
+  <div class="section-wrap">
+    <span class="section-label">// about</span>
+    <div class="about-grid">
+      <div class="about-bio">
+        <h2>Full Stack SWE by day.<br />White-hat hacker by night.</h2>
+        <p>
+          Based in Tampa, FL. University of Miami alumni. I love building with
+          new technology — especially AI. Currently deepening cybersecurity
+          knowledge through HackTheBox.
+        </p>
+        <p>
+          I operate at the intersection of product and engineering: I care
+          about shipping things that work, not just things that compile.
+        </p>
+      </div>
+      <div class="about-details">
+        <dl class="detail-list">
+          <div class="detail-row">
+            <dt>Focus</dt>
+            <dd>Full-stack web, AI tooling, cybersecurity</dd>
+          </div>
+          <div class="detail-row">
+            <dt>Location</dt>
+            <dd>Tampa, FL</dd>
+          </div>
+          <div class="detail-row">
+            <dt>Education</dt>
+            <dd>University of Miami</dd>
+          </div>
+          <div class="detail-row">
+            <dt>Currently</dt>
+            <dd>HackTheBox</dd>
+          </div>
+        </dl>
+        <a
+          href="https://github.com/magnusquest"
+          target="_blank"
+          rel="noopener"
+          class="btn"
+          style="margin-top: 2rem;"
+        >
+          GitHub ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background: var(--color-bg);
+    border-top: 2px solid var(--color-border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-bio h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 2px solid var(--color-border);
+  }
+
+  .detail-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .detail-row:last-child {
+    border-bottom: none;
+  }
+
+  .detail-row dt {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    padding: 0.75rem 1rem;
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border-subtle);
+  }
+
+  .detail-row dd {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    padding: 0.75rem 1rem;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

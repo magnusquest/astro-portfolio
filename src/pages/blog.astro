@@ -6,8 +6,27 @@ import BlogPost from '../components/BlogPost.astro';
 const posts = await getPosts();
 ---
 
-<BaseLayout pageTitle="Blog">
-	<ul>
-		{posts.map((post) => <BlogPost url={`/posts/${post.slug}`} title={post.title} />)}
-	</ul>
+<BaseLayout pageTitle="Blog — Martin Cordero">
+  <div class="section-wrap">
+    <span class="section-label">// blog</span>
+    <h1>Writing</h1>
+    <ul class="post-list">
+      {posts.map((post) => (
+        <BlogPost url={`/posts/${post.slug}`} title={post.title} publishDate={post.publishDate} />
+      ))}
+    </ul>
+    {posts.length === 0 && (
+      <p style="font-family: var(--font-mono); color: var(--color-text-muted);">No posts yet.</p>
+    )}
+  </div>
 </BaseLayout>
+
+<style>
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 2px solid var(--color-border);
+    margin-top: 2rem;
+  }
+</style>

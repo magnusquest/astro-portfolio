@@ -1,24 +1,25 @@
 ---
-import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LetterGlitch from "../components/LetterGlitch";
-import Skills from "../components/Skills.svelte";
-import Projects from "../components/Projects.svelte";
-import { getRecentProjects } from "../lib/hygraph";
-
-const projects = await getRecentProjects();
+import HeroSection from "../components/HeroSection.astro";
+import AboutSection from "../components/AboutSection.astro";
+import SkillsSection from "../components/SkillsSection.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
+import ContactSection from "../components/ContactSection.astro";
 ---
 
-<BaseLayout>
-	<div class="flex flex-col items-center">
-		<h1>Martin Alejandro Cordero</h1>
-		<img
-			src="https://avatars.githubusercontent.com/u/38227325?v=4"
-			alt="Profile picture"
-			class="mx-auto rounded-full border-4 border-gray-200 hover:border-opacity-50 transition-all duration-300 w-[40%]"
-		/>
-		<h2>Software Engineer</h2>
-	</div>
-	<Skills client:load />
-	<Projects projects={projects} client:load />
+<BaseLayout pageTitle="Martin Cordero — Founding Engineer">
+  <LetterGlitch
+    client:load
+    glitchColors={["#DDDDDD", "#CCCCCC", "#E5E5E5"]}
+    glitchSpeed={60}
+    smooth={true}
+    outerVignette={false}
+    centerVignette={false}
+  />
+  <HeroSection />
+  <AboutSection />
+  <SkillsSection />
+  <ProjectsSection />
+  <ContactSection />
 </BaseLayout>

@@ -1,0 +1,129 @@
+---
+import { getRecentProjects } from "../lib/hygraph";
+
+let projects: Awaited<ReturnType<typeof getRecentProjects>> = [];
+try {
+  projects = await getRecentProjects();
+} catch {
+  // Hygraph unavailable — render empty state
+}
+---
+
+<section id="projects" class="projects-section">
+  <div class="section-wrap">
+    <span class="section-label">// projects</span>
+    <h2>Selected Work</h2>
+
+    {projects.length === 0 ? (
+      <p class="empty">No projects yet.</p>
+    ) : (
+      <div class="projects-grid">
+        {projects.map((project) => (
+          <article class="card project-card">
+            {project.coverPhoto?.url && (
+              <div class="card-image">
+                <img
+                  src={project.coverPhoto.url}
+                  alt={project.title}
+                  loading="lazy"
+                />
+              </div>
+            )}
+            <div class="card-body">
+              <h3 class="project-title">{project.title}</h3>
+              <div class="project-content" set:html={project.content.html} />
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn project-link"
+                >
+                  View Project ↗
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    background: var(--color-bg);
+    border-top: 2px solid var(--color-border);
+  }
+
+  .projects-section h2 {
+    margin-bottom: 2.5rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .card-image {
+    border-bottom: 2px solid var(--color-border);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+  }
+
+  .project-card:hover .card-image img {
+    transform: scale(1.03);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.75rem;
+  }
+
+  .project-title {
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  .project-content {
+    flex: 1;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .project-content :global(p) {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .project-link {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+  }
+</style>

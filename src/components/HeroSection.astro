@@ -1,0 +1,135 @@
+---
+---
+
+<section id="hero" class="hero-section">
+  <div class="hero-inner" style="display:flex;align-items:center;justify-content:space-between;gap:3rem;">
+    <div class="hero-content">
+      <span class="section-label">// founding engineer & builder</span>
+      <h1 class="hero-name">Martin<br />Cordero</h1>
+      <p class="hero-tagline">Full-stack engineer. I build products, not tickets.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn">View Work</a>
+        <a href="#contact" class="btn btn-ghost">Contact</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/magnusquest" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">/</span>
+        <a href="https://linkedin.com/in/martin-alejandro-cordero/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">/</span>
+        <a href="https://x.com/matrix_quest" target="_blank" rel="noopener">X</a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <img
+        src="https://avatars.githubusercontent.com/u/38227325?v=4"
+        alt="Martin Cordero"
+        class="hero-avatar"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: transparent;
+  }
+
+  .hero-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 6rem 2rem 4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    margin: 0 0 1.5rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin: 0 0 2.5rem;
+    max-width: 420px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .hero-social {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-social a {
+    color: var(--color-text-muted);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 1px;
+    transition: color 0.1s, border-color 0.1s;
+  }
+
+  .hero-social a:hover {
+    color: var(--color-text);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .sep {
+    color: var(--color-border-subtle);
+  }
+
+  .hero-portrait {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .hero-avatar {
+    width: clamp(210px, 27vw, 330px);
+    height: clamp(210px, 27vw, 330px);
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--color-border);
+    box-shadow: var(--shadow-brutal-lg);
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .hero-inner {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .hero-avatar {
+      width: 144px;
+      height: 144px;
+    }
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+const skills = [
+  { label: "TypeScript", group: "lang" },
+  { label: "JavaScript", group: "lang" },
+  { label: "Java", group: "lang" },
+  { label: "React", group: "frontend" },
+  { label: "Vue", group: "frontend" },
+  { label: "Angular", group: "frontend" },
+  { label: "Svelte", group: "frontend" },
+  { label: "Astro", group: "frontend" },
+  { label: "Node.js", group: "backend" },
+  { label: "NestJS", group: "backend" },
+  { label: "Spring", group: "backend" },
+  { label: "PostgreSQL", group: "data" },
+  { label: "MySQL", group: "data" },
+  { label: "MongoDB", group: "data" },
+  { label: "GraphQL", group: "data" },
+  { label: "AWS", group: "infra" },
+  { label: "Firebase", group: "infra" },
+  { label: "Jenkins", group: "infra" },
+  { label: "Tailwind CSS", group: "frontend" },
+];
+---
+
+<section id="skills" class="skills-section">
+  <div class="section-wrap">
+    <span class="section-label">// skills</span>
+    <h2>Tech Stack</h2>
+    <div class="skills-grid">
+      {skills.map((skill) => (
+        <span class="skill-tag" data-group={skill.group}>
+          {skill.label}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-section {
+    background: var(--color-surface);
+    border-top: 2px solid var(--color-border);
+  }
+
+  .skills-section h2 {
+    margin-bottom: 2.5rem;
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .skill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    box-shadow: 3px 3px 0 var(--color-border);
+    transition: box-shadow 0.1s ease, transform 0.1s ease, background 0.1s;
+    cursor: default;
+  }
+
+  .skill-tag:hover {
+    background: var(--color-accent);
+    box-shadow: 1px 1px 0 var(--color-border);
+    transform: translate(2px, 2px);
+  }
+</style>
