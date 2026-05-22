@@ -27,14 +27,46 @@
       />
     </div>
   </div>
+  <a href="#about" class="scroll-arrow" aria-label="Scroll to next section">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </a>
 </section>
 
 <style>
   .hero-section {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     background: transparent;
+    position: relative;
+  }
+
+  .scroll-arrow {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-border-subtle);
+    transition: color 0.15s, border-color 0.15s;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .scroll-arrow:hover {
+    color: var(--color-text);
+    border-color: var(--color-accent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
   }
 
   .hero-inner {
@@ -128,8 +160,8 @@
     }
 
     .hero-avatar {
-      width: 144px;
-      height: 144px;
+      width: 288px;
+      height: 288px;
     }
   }
 </style>
