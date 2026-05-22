@@ -4,8 +4,8 @@ pubDate: 2024-01-20
 description: 'Examining techniques and mindsets for tackling complex challenges'
 author: 'Creative Thinker'
 image:
-  url: 'https://example.com/path/to/problem-solving-image.webp'
-  alt: 'An illustration of creative problem solving.'
+  url: 'https://images.unsplash.com/photo-1758691736980-c619fa4203bb?fm=jpg&q=80&w=1200&auto=format&fit=crop'
+  alt: 'Team brainstorming ideas on a glass wall covered in sticky notes'
 tags: ['problem solving', 'creativity', 'innovation', 'mindset']
 ---
 

@@ -4,8 +4,8 @@ pubDate: 2024-01-15
 description: 'Exploring how programming transforms abstract ideas into digital gold'
 author: 'Digital Alchemist'
 image:
-  url: 'https://docs.astro.build/assets/full-logo-dark.png'
-  alt: 'The Astro logo with the word One.'
+  url: 'https://images.unsplash.com/photo-1742137587510-389de3549208?fm=jpg&q=80&w=1200&auto=format&fit=crop'
+  alt: 'Glass laboratory equipment and test tubes in a dimly lit Soviet-era science lab'
 tags: ['coding', 'technology', 'philosophy', 'software development']
 ---
 

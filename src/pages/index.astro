@@ -4,6 +4,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import LetterGlitch from "../components/LetterGlitch";
 import Skills from "../components/Skills.svelte";
 import Projects from "../components/Projects.svelte";
+import { getRecentProjects } from "../lib/hygraph";
+
+const projects = await getRecentProjects();
 ---
 
 <BaseLayout>
@@ -17,5 +20,5 @@ import Projects from "../components/Projects.svelte";
 		<h2>Software Engineer</h2>
 	</div>
 	<Skills client:load />
-	<Projects client:load />
+	<Projects projects={projects} client:load />
 </BaseLayout>

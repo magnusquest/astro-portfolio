@@ -1,26 +1,27 @@
-<script>
-  export let projects = [
-    {
-      name: 'Astro Portfolio',
-      description: 'A modern portfolio site built with Astro, React, Svelte, and Vue.',
-      url: 'https://github.com/yourusername/astro-portfolio'
-    },
-    {
-      name: 'Blog Platform',
-      description: 'A markdown-based blog platform with dynamic content.',
-      url: 'https://github.com/yourusername/blog-platform'
-    }
-  ];
+<script lang="ts">
+  import type { Project } from '../lib/hygraph';
+
+  export let projects: Project[] = [];
 </script>
 
 <section class="projects-section">
   <h2>Projects</h2>
-  <ul>
-    {#each projects as project}
-      <li>
-        <strong>{project.name}</strong>: {project.description}
-        <a href={project.url} target="_blank" rel="noopener">View</a>
-      </li>
-    {/each}
-  </ul>
+  {#if projects.length === 0}
+    <p>No projects yet.</p>
+  {:else}
+    <ul>
+      {#each projects as project}
+        <li>
+          {#if project.coverPhoto}
+            <img src={project.coverPhoto.url} alt={project.title} width="400" />
+          {/if}
+          <strong>{project.title}</strong>
+          <div>{@html project.content.html}</div>
+          {#if project.link}
+            <a href={project.link} target="_blank" rel="noopener">View Project</a>
+          {/if}
+        </li>
+      {/each}
+    </ul>
+  {/if}
 </section>

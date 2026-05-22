@@ -1,19 +1,22 @@
 ---
-import { getCollection, render } from 'astro:content';
-import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+export const prerender = false;
 
-export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: { post },
-	}));
-}
+import { getPost } from '../../lib/hygraph';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const { post } = Astro.props;
-const { Content } = await render(post);
+const { slug } = Astro.params;
+const post = await getPost(slug ?? '');
+
+if (!post) return Astro.redirect('/blog');
 ---
 
-<MarkdownPostLayout frontmatter={post.data}>
-	<Content />
-</MarkdownPostLayout>
+<BaseLayout pageTitle={post.title}>
+	<h1>{post.title}</h1>
+	{post.publishDate && (
+		<p>{new Date(post.publishDate).toLocaleDateString()}</p>
+	)}
+	{post.coverPhoto && (
+		<img src={post.coverPhoto.url} alt={post.title} width="800" />
+	)}
+	<div set:html={post.content.html} />
+</BaseLayout>

@@ -3,8 +3,8 @@ title: My Fourth Blog Post
 author: Astro Learner
 description: 'This post will show up on its own!'
 image:
-  url: 'https://docs.astro.build/default-og-image.png'
-  alt: 'The word astro against an illustration of planets and stars.'
+  url: 'https://images.unsplash.com/photo-1772471349849-40434786468d?fm=jpg&q=80&w=1200&auto=format&fit=crop'
+  alt: 'Distant galaxies and stars in the night sky'
 pubDate: 2022-08-08
 tags: ['astro', 'successes']
 ---

@@ -4,8 +4,8 @@ pubDate: 2024-01-10
 description: 'Exploring the evolution of algorithms from mechanical computation to logical processes'
 author: 'Tech Historian'
 image:
-  url: 'https://example.com/path/to/algorithm-image.webp'
-  alt: 'An illustration representing algorithms.'
+  url: 'https://images.unsplash.com/photo-1758685734312-5134968399a8?fm=jpg&q=80&w=1200&auto=format&fit=crop'
+  alt: 'Hand writing mathematical formulas on a blackboard'
 tags: ['algorithms', 'history', 'computer science', 'technology']
 ---
 
