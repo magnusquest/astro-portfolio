@@ -2,11 +2,21 @@
 ---
 
 <section id="hero" class="hero-section">
-  <div class="hero-inner" style="display:flex;align-items:center;justify-content:space-between;gap:3rem;">
-    <div class="hero-content">
+  <div class="hero-inner">
+    <div class="hero-content-top">
       <span class="section-label">// founding engineer & builder</span>
       <h1 class="hero-name">Martin<br />Cordero</h1>
-      <p class="hero-tagline">Full-stack engineer. I build products, not tickets.</p>
+    </div>
+    <div class="hero-portrait">
+      <img
+        src="https://avatars.githubusercontent.com/u/38227325?v=4"
+        alt="Martin Cordero"
+        class="hero-avatar"
+      />
+    </div>
+    <div class="hero-content-bottom">
+      <p class="hero-tagline">Full Stack SWE by day.</p>
+      <p class="hero-tagline">White-hat hacker & builder by night.</p>
       <div class="hero-cta">
         <a href="#projects" class="btn">View Work</a>
         <a href="#contact" class="btn btn-ghost">Contact</a>
@@ -18,13 +28,6 @@
         <span class="sep">/</span>
         <a href="https://x.com/matrix_quest" target="_blank" rel="noopener">X</a>
       </div>
-    </div>
-    <div class="hero-portrait">
-      <img
-        src="https://avatars.githubusercontent.com/u/38227325?v=4"
-        alt="Martin Cordero"
-        class="hero-avatar"
-      />
     </div>
   </div>
   <a href="#about" class="scroll-arrow" aria-label="Scroll to next section">
@@ -74,15 +77,33 @@
     margin: 0 auto;
     padding: 6rem 2rem 4rem;
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0 3rem;
     align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
   }
 
-  .hero-content {
-    flex: 1;
-    min-width: 0;
+  .hero-content-top {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+  }
+
+  .hero-content-bottom {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  .hero-portrait {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
   }
 
   .hero-name {
@@ -97,7 +118,7 @@
     font-family: var(--font-sans);
     font-size: 1.125rem;
     color: var(--color-text-muted);
-    margin: 0 0 2.5rem;
+    margin: 0;
     max-width: 420px;
   }
 
@@ -105,7 +126,7 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin: 3rem 0;
   }
 
   .hero-social {
@@ -134,14 +155,6 @@
     color: var(--color-border-subtle);
   }
 
-  .hero-portrait {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
   .hero-avatar {
     width: clamp(210px, 27vw, 330px);
     height: clamp(210px, 27vw, 330px);
@@ -154,14 +167,46 @@
 
   @media (max-width: 600px) {
     .hero-inner {
-      flex-direction: column-reverse;
+      display: flex;
+      flex-direction: column;
       align-items: flex-start;
-      gap: 2rem;
+      gap: 1rem;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .hero-content-top {
+      order: 1;
+      text-align: left;
+      width: 100%;
+    }
+
+    .hero-portrait {
+      order: 2;
+      padding: 0;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .hero-content-bottom {
+      order: 3;
+      width: 100%;
+    }
+
+    .hero-name {
+      margin: 0 0 0.5rem;
+    }
+
+    .hero-tagline {
+      margin: 0;
+    }
+
+    .hero-cta {
+      margin: 1.25rem 0;
     }
 
     .hero-avatar {
-      width: 288px;
-      height: 288px;
+      width: 200px;
+      height: 200px;
     }
   }
 </style>
