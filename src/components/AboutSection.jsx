@@ -1,26 +1,36 @@
 import React from "react";
 
+const skills = [
+	"TypeScript", "JavaScript", "Java",
+	"Vue", "Angular", "React", "Svelte", "Astro",
+	"Node.js", "NestJS", "Spring",
+	"PostgreSQL", "MySQL", "MongoDB",
+	"GraphQL", "AWS", "Firebase",
+	"Tailwind CSS", "Jenkins",
+];
+
 const AboutSection = () => (
 	<section className="about-section">
 		<h2>About Me</h2>
 		<p>
-			I am a passionate Software Engineer with experience in full-stack
-			development, specializing in modern web technologies. I enjoy building
-			performant, accessible, and beautiful web applications.
+			Full Stack SWE by day, white-hat hacker by night. Based in Tampa, FL.
+			University of Miami alumni.
+		</p>
+		<p>
+			I love building with new technology — especially AI. Currently deepening
+			my cybersecurity knowledge through HackTheBox.
 		</p>
 		<ul>
-			<li>
-				<strong>Experience:</strong> 5+ years in web development
-			</li>
-			<li>
-				<strong>Key Skills:</strong> JavaScript, TypeScript, React, Svelte, Vue,
-				Node.js, Astro
-			</li>
-			<li>
-				<strong>Location:</strong> Remote / Global
-			</li>
+			<li><strong>Focus:</strong> Full-stack web, AI tooling, cybersecurity</li>
+			<li><strong>Location:</strong> Tampa, FL</li>
+			<li><strong>Education:</strong> University of Miami</li>
 		</ul>
-		{/* GitHub stats component will be added here in a future step */}
+		<h3>Skills</h3>
+		<ul className="skills-list">
+			{skills.map((skill) => (
+				<li key={skill}>{skill}</li>
+			))}
+		</ul>
 	</section>
 );
 
